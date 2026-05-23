@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Mobile Phone Catalog</title>
+<meta charset="UTF-8">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: lightblue;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+section {
+    padding: 20px;
+}
+
+article {
+    background: lightpink;
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+    display: inline-block;
+    width: 28%;
+    vertical-align: top;
+    text-align: center;
+}
+
+article img {
+    border-radius: 10px;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+
+form {
+    background: white;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px gray;
+}
+
+input, select, textarea {
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #3e97e6;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+}
+</style>
+
+<script>
+function checkForm(form)
+{
+    if(form.username.value == "") {
+        alert("Username required!");
+        return false;
+    }
+
+    if(form.pwd1.value.length < 6){
+        alert("Password must be at least 6 characters!");
+        return false;
+    }
+
+    if(form.pwd1.value != form.pwd2.value){
+        alert("Passwords do not match!");
+        return false;
+    }
+
+    if(form.phone.value.length != 10){
+        alert("Enter valid 10-digit phone number!");
+        return false;
+    }
+
+    if(form.address.value == ""){
+        alert("Address is required!");
+        return false;
+    }
+
+    alert("Order Placed Successfully!");
+    return true;
+}
+
+// Feedback function
+function submitFeedback(){
+    let msg = document.getElementById("feedbackMsg").value;
+
+    if(msg == ""){
+        alert("Please enter feedback!");
+    } else {
+        alert("Thank you for your feedback!");
+        document.getElementById("feedbackMsg").value = "";
+    }
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+<h1>📱 Mobile Phone Catalog</h1>
+<nav>
+<a href="#home">Home</a>
+<a href="#phones">Phones</a>
+<a href="#compare">Compare</a>
+<a href="#contact">Order</a>
+<a href="#feedback">Feedback</a>
+</nav>
+</header>
+
+<section id="home">
+<h2>About Our Store</h2>
+<p>Explore latest smartphones, compare features, and place your order easily.</p>
+</section>
+
+<section id="phones">
+<h2>Mobile Phones</h2>
+
+<article>
+<h3>iPhone 15</h3>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA6qB03xhvMNBHpWeI8-Bg6tRoKlPRDdzX7Q&s" width="200">
+<p>48MP Camera | 128GB | A16 Chip</p>
+</article>
+
+<article>
+<h3>Samsung S23</h3>
+<img src="https://m.media-amazon.com/images/I/71goZuIha-L._AC_UF894,1000_QL80_.jpg" width="200">
+<p>50MP Camera | AMOLED | Snapdragon</p>
+</article>
+
+<article>
+<h3>OnePlus 12</h3>
+<img src="https://oasis.opstatics.com/content/dam/oasis/page/2023/cn/12/12-black.png" width="200">
+<p>120Hz Display | 5400mAh Battery</p>
+</article>
+
+</section>
+
+<section id="compare">
+<h2>Comparison</h2>
+
+<table>
+<tr>
+<th>Phone</th>
+<th>Display</th>
+<th>Camera</th>
+<th>Battery</th>
+</tr>
+<tr>
+<td>iPhone 15</td>
+<td>6.1"</td>
+<td>48MP</td>
+<td>3349</td>
+</tr>
+<tr>
+<td>Samsung S23</td>
+<td>6.1"</td>
+<td>50MP</td>
+<td>3900</td>
+</tr>
+<tr>
+<td>OnePlus 12</td>
+<td>6.7"</td>
+<td>50MP</td>
+<td>5400</td>
+</tr>
+</table>
+</section>
+
+<section id="contact">
+<h2>Order Details</h2>
+
+<form onsubmit="return checkForm(this);">
+
+<label>Username:</label>
+<input type="text" name="username">
+
+<label>Password:</label>
+<input type="password" name="pwd1">
+
+<br>
+
+<label>Confirm Password:</label>
+<input type="password" name="pwd2">
+
+<br>
+
+<label>Full Name:</label>
+<input type="text" name="name">
+
+<br>
+<label>Email:</label>
+<input type="email">
+<br>
+<label>Phone Number:</label>
+<input type="text" name="phone">
+<br>
+<label>Address:</label>
+<textarea name="address"></textarea>
+<br>
+<label>Select Phone:</label>
+<select>
+<option>iPhone 15</option>
+<option>Samsung S23</option>
+<option>OnePlus 12</option>
+</select>
+<br>
+<label>Quantity:</label>
+<input type="number" min="1">
+<br>
+<label>Payment Method:</label>
+<select>
+<option>Cash on Delivery</option>
+<option>UPI</option>
+<option>Credit/Debit Card</option>
+</select>
+<br>
+<label>Delivery Date:</label>
+<input type="date">
+
+<br><br>
+
+<button type="submit">Place Order</button>
+<button type="reset">Reset</button>
+
+</form>
+</section>
+
+<section id="feedback">
+<h2>Customer Feedback</h2>
+
+<div style="width:60%; margin:auto; background:white; padding:20px; border-radius:10px; box-shadow:0 0 10px gray;">
+<label>Your Feedback:</label>
+<textarea id="feedbackMsg" rows="4"></textarea>
+
+<br><br>
+
+<button onclick="submitFeedback()">Submit Feedback</button>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Mobile Store | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
